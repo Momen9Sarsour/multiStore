@@ -13,7 +13,7 @@
                         <h4 class="card-title"> Stores List</h4>
                     </div>
                     <div class="col-md-3">
-                        <a href="{{route('admin/stores/create')}}" class="btn btn-primary">Add Store</a>
+                        <a href="{{route('adminStores.create')}}" class="btn btn-primary">Add Store</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -41,9 +41,9 @@
                                     <td>{{$store->phone}}</td>
                                     <td>
                                         {{-- <a href="{{route('store.edit',$store->id)}}" class=" btn btn-info">Edit</a> --}}
-                                        <a href="{{url('/admin/stores/edit/'.$store->id)}}" class=" btn btn-info">Edit</a>
+                                        <a href="{{url('/adminStores/'.$store->id.'/edit/')}}" class=" btn btn-info">Edit</a>
                                         {{-- <form action="{{route('store.destroy',$store->id)}}" method='post' class="d-inline"> --}}
-                                        <form action="{{url('/admin/stores/delete/'.$store->id)}}" method='post' class="d-inline">
+                                        <form action="{{url('/adminStores/'.$store->id)}}" method='post' class="d-inline">
                                             @csrf
                                             @method('DELETE')
                                             <button type='submit' class=" btn btn-danger">Delete</button>

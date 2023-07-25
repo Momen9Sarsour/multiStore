@@ -13,7 +13,7 @@
                         <h4 class="card-title"> Stores List</h4>
                     </div>
                     <div class="col-md-3">
-                <a href="{{route('admin/employee/create')}}" class="btn btn-primary">Add Employee</a>
+                <a href="{{route('adminEmployee.create')}}" class="btn btn-primary">Add Employee</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -43,9 +43,9 @@
                                     <td>{{$employee->email}}</td>
                                     <td>
                                         {{-- <a href="{{route('employee.edit',$employee->id)}}" class=" btn btn-info">Edit</a> --}}
-                                        <a href="{{url('/admin/employee/edit/'.$employee->id)}}" class=" btn btn-info">Edit</a>
+                                        <a href="{{url('/adminEmployee/'.$employee->id).'/edit/'}}" class=" btn btn-info">Edit</a>
                                         {{-- <form action="{{route('employee.destroy',$employee->id)}}" method='post' class="d-inline"> --}}
-                                        <form action="{{url('/admin/employee/delete/'.$employee->id)}}" method='post' class="d-inline">
+                                        <form action="{{url('/adminEmployee/'.$employee->id)}}" method='post' class="d-inline">
                                             @csrf
                                             @method('DELETE')
                                             <button type='submit' class=" btn btn-danger">Delete</button>

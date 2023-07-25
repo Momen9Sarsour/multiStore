@@ -3,7 +3,7 @@
 
 <div class="container py-3">
     {{-- <form action="{{url('products/store')}}" method="post" enctype="multipart/form-data"> --}}
-    <form action="{{route('admin/delivery/store')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('adminDelivery.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="nameFormControlInput" class="form-label">Name Delivery</label>

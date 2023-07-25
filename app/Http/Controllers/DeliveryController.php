@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 class DeliveryController extends Controller
 {
     // index
-    public function deliveryList()
+    public function index()
     {
         $delivery = Delivery::all();
         return view('adminStore.delivery.deliveryList',compact('delivery'));
     }
     //create
-    public function createDelivery()
+    public function create()
     {
         return view('adminStore.delivery.create');
     }
@@ -47,7 +47,7 @@ class DeliveryController extends Controller
         //session message
         session()->flash('message', 'Delivery added!');
         //redirect
-        return redirect()->route('admin/delivery');
+        return redirect()->route('adminDelivery.index');
     }
     //edit
     public function edit($id)
@@ -85,7 +85,7 @@ class DeliveryController extends Controller
         //session message
         session()->flash('message', 'delivery updated!');
         //redirect
-        return redirect()->route('admin/delivery');
+        return redirect()->route('adminDelivery.index');
     }
     //delete
     public function destroy($id)
@@ -99,13 +99,15 @@ class DeliveryController extends Controller
         //session message
         session()->flash('message', 'delivery deleted! & image deleted!');
         //redirect
-        return redirect()->route('admin/delivery');
+        return redirect()->route('adminDelivery.index');
     }
 
 
 
 
 
+
+    
 
     // index
     public function empDeliveryList()

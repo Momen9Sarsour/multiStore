@@ -3,8 +3,9 @@
 
 <div class="container py-3">
     {{-- <form action="{{url('products/update/'.$store->id)}}" method="post" enctype="multipart/form-data"> --}}
-    <form action="{{url('/admin/stores/update/'.$store->id)}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('adminStores.update',$store->id)}}" method="post" enctype="multipart/form-data">
         @csrf
+        @method('put')
         <div class="mb-3">
             <label for="nameFormControlInput" class="form-label">Name Store</label>
             <input type="text" class="form-control" id="name" name="name" value="{{$store->name}}" placeholder="Name Store">

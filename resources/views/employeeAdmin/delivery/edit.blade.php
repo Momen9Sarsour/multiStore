@@ -18,7 +18,7 @@
         <div class="mb-3">
             <label for="quantityFormControlInput" class="form-label">Phone</label>
             {{-- <input type="number" class="form-control" id="phone" name="phone" value="{{$delivery->phone}}" placeholder="Phone"> --}}
-            <input type="number" class="form-control" id="phone" name="phone" value="{{$delivery->phone}}" placeholder="Phone">
+            <input type="phone" class="form-control" id="phone" name="phone" value="{{$delivery->phone}}" placeholder="Phone">
         </div>
         <div class="mb-3">
             <label for="descriptionFormControlTextarea" class="form-label">Address</label>

@@ -19,13 +19,13 @@ class EmployeeAdminController extends Controller
         //$this->middleware('admin', ['except' => ['index','show']]);
     }
     // index
-    public function employeesList()
+    public function index()
     {
         $employee = EmployeeAdmin::all();
         return view('adminStore.employee.employeeList',compact('employee'));
     }
     //create
-    public function createEmployee()
+    public function create()
     {
         return view('adminStore.employee.create');
     }
@@ -58,7 +58,7 @@ class EmployeeAdminController extends Controller
         //session message
         session()->flash('message', 'Employee added!');
         //redirect
-        return redirect()->route('admin/employee');
+        return redirect()->route('adminEmployee.index');
     }
     //edit
     public function edit($id)
@@ -96,7 +96,7 @@ class EmployeeAdminController extends Controller
         //session message
         session()->flash('message', 'Employee updated!');
         //redirect
-        return redirect()->route('admin/employee');
+        return redirect()->route('adminEmployee.index');
     }
     //delete
     public function destroy($id)
@@ -110,7 +110,7 @@ class EmployeeAdminController extends Controller
         //session message
         session()->flash('message', 'Employee deleted! & image deleted!');
         //redirect
-        return redirect()->route('admin/employee');
+        return redirect()->route('adminEmployee.index');
     }
 
 }

@@ -44,7 +44,7 @@
                                         {{-- <a href="{{route('store.edit',$store->id)}}" class=" btn btn-info">Edit</a> --}}
                                         <a href="{{url('/employeeAdmin/stores/edit/'.$store->id)}}" class=" btn btn-info">Edit</a>
                                         {{-- <form action="{{route('store.destroy',$store->id)}}" method='post' class="d-inline"> --}}
-                                        <form action="#" method='post' class="d-inline">
+                                        <form action="{{url('/employeeAdmin/stores/delete/'.$store->id)}}" method='post' class="d-inline">
                                             @csrf
                                             @method('DELETE')
                                             <button type='submit' class=" btn btn-danger">Delete</button>

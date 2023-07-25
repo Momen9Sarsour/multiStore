@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 
 class StoreController extends Controller
 {
-    public function storesList()
+    public function index()
     {
         $store = Store::all();
         return view('adminStore.stores.storesList', compact('store'));
     }
-    public function createStore()
+    public function create()
     {
         return view('adminStore.stores.create');
     }
@@ -53,16 +53,18 @@ class StoreController extends Controller
         session()->flash('message', 'Store added!');
         // return redirect
         // return redirect(view('adminStore.stores.storesList'));
-        return redirect()->route('admin/stores');
+        return redirect()->route('adminStores.index');
     }
     //edit
     public function edit($id){
+
         $store=Store::findOrFail($id);
         return view('adminStore.stores.edit',compact('store'));
     }
     //update
     public function update(Request $request, $id){
         //validate data
+        // dd($request->all());
         $request->validate([
             'name' =>'required',
             'image'=>'nullable',
@@ -86,7 +88,7 @@ class StoreController extends Controller
         //session message
         session()->flash('message', 'Employee updated!');
         // return back
-        return redirect()->route('admin/stores');
+        return redirect()->route('adminStores.index');
     }
     //delete
     public function destroy($id){
@@ -99,7 +101,7 @@ class StoreController extends Controller
         //session message
         session()->flash('message', 'Employee deleted! & image deleted!');
         //redirect
-        return redirect()->route('admin/stores');
+        return redirect()->route('adminStores.index');
     }
 
 
