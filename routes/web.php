@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\EmployeeAdminController;
 use App\Http\Controllers\StoreController;
@@ -35,6 +36,8 @@ Route::resource('/adminEmployee', EmployeeAdminController::class);
 Route::get('/admin/product', function () {
     $product = Product::all();
      return view('adminStore.product.listProduct',compact('product'));})->name('admin/product');
+// category route
+Route::resource('/adminCategory', CategoryController::class);
 // report route
 Route::get('/admin/report', function () { return view('adminStore.reports.listReport');})->name('admin/report');
 //delivery route
@@ -47,36 +50,10 @@ Route::get('/admin/order', function () {
      return view('adminStore.order.listOrder',compact('order'));})->name('admin/order');
 
 
+     // employee Admin route
+     // /employeeAdmin/dashboard
+     require __DIR__.'/employeeAdmin/employeeAdmin.php';
 
-
-
-
-// employee Admin route
-Route::get('/employeeAdmin/dashboard', function () { return view('employeeAdmin.dashboard');})->name('employeeAdmin/dashboard');
-// Stores
-Route::get('/employeeAdmin/stores', [StoreController::class, 'empStoresList'])->name('employeeAdmin/stores');
-Route::get('/employeeAdmin/stores/create', [StoreController::class, 'empCreateStore'])->name('employeeAdmin/stores/create');
-Route::post('/employeeAdmin/stores/store', [StoreController::class, 'empStore'])->name('employeeAdmin/stores/store');
-Route::get('/employeeAdmin/stores/edit/{id}', [StoreController::class, 'empEdit']);
-Route::post('/employeeAdmin/stores/update/{id}', [StoreController::class, 'empUpdate']);
-Route::delete('/employeeAdmin/stores/delete/{id}', [StoreController::class, 'empDelete']);
-// List product route
-Route::get('/employeeAdmin/product', function () {
-    $product = Product::all();
-     return view('employeeAdmin.product.listProduct',compact('product'));})->name('employeeAdmin/product');
-// List support route
-Route::get('/employeeAdmin/support', function () { return view('employeeAdmin.support.support');})->name('employeeAdmin/support');
-// List order route
-Route::get('/employeeAdmin/order', function () {
-    $order = Order::all();
-    return view('employeeAdmin.order.listOrder',compact('order'));})->name('employeeAdmin/order');
-//delivery route
-Route::get('/employeeAdmin/delivery', [DeliveryController::class, 'empDeliveryList'])->name('employeeAdmin/delivery');
-Route::get('/employeeAdmin/delivery/create', [DeliveryController::class, 'empCreateDelivery'])->name('employeeAdmin/delivery/create');
-Route::post('/employeeAdmin/delivery/store', [DeliveryController::class, 'empStore'])->name('employeeAdmin/delivery/store');
-Route::get('/employeeAdmin/delivery/edit/{id}', [DeliveryController::class, 'empEdit']);
-Route::post('/employeeAdmin/delivery/update/{id}', [DeliveryController::class, 'empUpdate']);
-Route::delete('/employeeAdmin/delivery/delete/{id}', [DeliveryController::class, 'empDestroy']);
 
 
 

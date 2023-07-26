@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('name')->require(); // Name is required
             $table->string('image');
             $table->text('description')->nullable();
-            $table->unsignedBigInteger('store_id');
+            $table->foreignId('store_id')->nullable()->nullOnDelete();
+            $table->enum('status',['active','archived'],)->default('active');
 
             $table->timestamps();
         });
